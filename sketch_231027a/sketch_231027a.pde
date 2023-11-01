@@ -1,17 +1,19 @@
 //global variables
-int appWidth, appHeight;
+int appWidth, appHeight, smallerDimension;
 float faceX, faceY, faceDiameter;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float xRect, yRect, widthRect, heightRect;
 float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen, mouthReset;
+float measleX, measleY, measleDiameter;
+color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000);
 //
 void setup() {
 fullScreen();
 appWidth = displayWidth;
 appHeight = displayHeight;
-int smallerDimension = (appWidth>= appHeight) ? appHeight: appWidth;
+smallerDimension = (appWidth>= appHeight) ? appHeight: appWidth;
 println("Smaller Dimension is", smallerDimension);
 //
 //population
@@ -37,26 +39,39 @@ mouthX1 = noseX2;
 mouthY1 = backgroundY+smallerDimension*4/5;
 mouthX2 = noseX3;
 mouthY2 = mouthY1;
-mouthOpen = smallerDimension*1/10;
+mouthOpen = smallerDimension*1/20;
 mouthReset = smallerDimension/smallerDimension;
 xRect = backgroundX; 
 yRect = backgroundY*1/5;
 widthRect = backgroundWidth*1/7;
 heightRect= backgroundHeight*1/7;
+rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
+rect(xRect, yRect, widthRect, heightRect);
+ellipse(faceX, faceY, faceDiameter, faceDiameter );
 //
 //DIVs
 } //End setup
 //
 void draw() {
-rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-rect(xRect, yRect, widthRect, heightRect);
-ellipse(faceX, faceY, faceDiameter, faceDiameter );
+frameRate(15);
+fill(Red);
+measleX = random(backgroundX, faceDiameter*4/3);
+measleY = random(0, faceDiameter); 
+measleDiameter = random(smallerDimension*1/100, smallerDimension*1/30);
+noStroke();
+ellipse(measleX, measleY, measleDiameter, measleDiameter);
+stroke(1);
+fill(White);
+//
+fill(Black);
 ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
 ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
+fill(White);
 triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
 strokeWeight(mouthOpen);
 line(mouthX1, mouthY1, mouthX2, mouthY2);
 strokeWeight(mouthReset);
+//
 } //End draw
 //
 void keyPressed() {}

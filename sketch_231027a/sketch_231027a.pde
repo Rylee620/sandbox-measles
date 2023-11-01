@@ -55,8 +55,8 @@ ellipse(faceX, faceY, faceDiameter, faceDiameter );
 void draw() {
 frameRate(15);
 fill(Red);
-measleX = random(backgroundX, faceDiameter*4/3);
-measleY = random(0, faceDiameter); 
+measleX = random(backgroundX+measleDiameter*1/3, backgroundX+backgroundWidth-measleDiameter*1/3);
+measleY = random(backgroundY, faceDiameter); 
 measleDiameter = random(smallerDimension*1/100, smallerDimension*1/30);
 noStroke();
 ellipse(measleX, measleY, measleDiameter, measleDiameter);

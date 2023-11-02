@@ -3,11 +3,12 @@ int appWidth, appHeight, smallerDimension;
 float faceX, faceY, faceDiameter;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float xRect, yRect, widthRect, heightRect;
+float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
 float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen, mouthReset;
 float measleX, measleY, measleDiameter;
-color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000);
+color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000), Quit =(#FF4400);
 //
 void setup() {
 fullScreen();
@@ -45,6 +46,10 @@ xRect = backgroundX;
 yRect = backgroundY*1/5;
 widthRect = backgroundWidth*1/7;
 heightRect= backgroundHeight*1/7;
+xRectQuit = backgroundX*16/5 ;
+yRectQuit = yRect;
+widthRectQuit = widthRect;
+heightRectQuit = heightRect;
 rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
 rect(xRect, yRect, widthRect, heightRect);
 ellipse(faceX, faceY, faceDiameter, faceDiameter );
@@ -53,7 +58,7 @@ ellipse(faceX, faceY, faceDiameter, faceDiameter );
 } //End setup
 //
 void draw() {
-frameRate(15);
+frameRate(20);
 fill(Red);
 measleX = random(backgroundX+measleDiameter*1/3, backgroundX+backgroundWidth-measleDiameter*1/3);
 measleY = random(backgroundY, faceDiameter); 
@@ -71,11 +76,14 @@ triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
 strokeWeight(mouthOpen);
 line(mouthX1, mouthY1, mouthX2, mouthY2);
 strokeWeight(mouthReset);
+fill(Quit);
+rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
 //
 } //End draw
 //
 void keyPressed() {}
 //
-void mousePressed() {}
-//
+void mousePressed() {
+if ( mouseX>xRectQuit && mouseX<xRectQuit+widthRectQuit && mouseY>yRectQuit && mouseY<yRectQuit+heightRectQuit ) exit();
+}
 //End MAIN Program

@@ -68,7 +68,7 @@ measleDiameter = random(smallerDimension*1/100, smallerDimension*1/30);
 measleX = random(backgroundX+(measleDiameter/2), backgroundX+backgroundWidth)-(measleDiameter/2);
 while ( measleX < button1X+buttonSide ) measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
 measleY = random(backgroundY+(measleDiameter/2), backgroundY+backgroundHeight)-(measleDiameter/2); 
- while ( measleY < button1Y+buttonSide ) measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
+ while ( measleY < button1Y+buttonSide  ) measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
   //button1X, button1Y, buttonSide,
 noStroke();
 ellipse(measleX, measleY, measleDiameter, measleDiameter);

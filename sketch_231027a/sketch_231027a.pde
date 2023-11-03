@@ -8,6 +8,7 @@ float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen, mouthReset;
 float measleX, measleY, measleDiameter;
+float button1X, button1Y, buttonSide;
 color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000), Quit =(#FF4400);
 //
 void setup() {
@@ -51,18 +52,24 @@ yRectQuit = yRect;
 widthRectQuit = widthRect;
 heightRectQuit = heightRect;
 rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-rect(xRect, yRect, widthRect, heightRect);
 ellipse(faceX, faceY, faceDiameter, faceDiameter );
+button1X = backgroundX;
+  button1Y = backgroundY;
+  buttonSide = smallerDimension/2-sqrt(sq(smallerDimension/2)/2);
+  rect( button1X, button1Y, buttonSide, buttonSide );
+  println(backgroundX, smallerDimension, smallerDimension/2, sq( smallerDimension/2 ), sq( smallerDimension/2 ) /2, sqrt( sq( smallerDimension/2 ) /2 ), smallerDimension/2-sqrt(sq(smallerDimension/2)/2) );
 //
 //DIVs
 } //End setup
 //
 void draw() {
-frameRate(20);
 fill(Red);
-measleX = random(backgroundX+measleDiameter*1/3, backgroundX+backgroundWidth-measleDiameter*1/3);
-measleY = random(backgroundY, faceDiameter); 
 measleDiameter = random(smallerDimension*1/100, smallerDimension*1/30);
+measleX = random(backgroundX+(measleDiameter/2), backgroundX+backgroundWidth)-(measleDiameter/2);
+while ( measleX < button1X+buttonSide ) measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
+measleY = random(backgroundY+(measleDiameter/2), backgroundY+backgroundHeight)-(measleDiameter/2); 
+ while ( measleY < button1Y+buttonSide ) measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
+  //button1X, button1Y, buttonSide,
 noStroke();
 ellipse(measleX, measleY, measleDiameter, measleDiameter);
 stroke(1);

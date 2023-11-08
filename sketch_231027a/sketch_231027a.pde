@@ -13,7 +13,6 @@ color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000), Quit =(#FF4400), Red2=
 String start="Start", stop="STOP", quit="X";
 PFont buttonFont;
 Boolean measlesOn=false;
-
 //
 void setup() {
   fullScreen();
@@ -60,7 +59,6 @@ void setup() {
   button2Y = button1Y;
   button3X = button2X;
   button3Y = backgroundY+faceDiameter-buttonSide;
-  println(backgroundX, smallerDimension, smallerDimension/2, sq( smallerDimension/2 ), sq( smallerDimension/2 ) /2, sqrt( sq( smallerDimension/2 ) /2 ), smallerDimension/2-sqrt(sq(smallerDimension/2)/2) );
   rect( button1X, button1Y, buttonSide, buttonSide );
   rect( button2X, button2Y, buttonSide, buttonSide );
   rect( button3X, button3Y, buttonSide, buttonSide );  
@@ -91,9 +89,7 @@ void draw() {
     rect( button1X, button1Y, buttonSide, buttonSide );
     rect( button2X, button2Y, buttonSide, buttonSide );
     rect( button3X, button3Y, buttonSide, buttonSide );
-  }
-  
-  
+  } 
   //
   fill(Black); //ink
   textAlign(CENTER, CENTER); //Align X&Y, see Processing.org / Reference
@@ -104,25 +100,18 @@ void draw() {
   text(stop, button2X, button2Y, buttonSide, buttonSide);
   text(quit, button3X, button3Y, buttonSide, buttonSide);
   fill(Red);
-  measleDiameter = random(smallerDimension*1/100, smallerDimension*1/30);
-  measleX = random(backgroundX+(measleDiameter/2), backgroundX+backgroundWidth)-(measleDiameter/2);
-  while ( measleX < button1X+buttonSide ) measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
-  while ( measleX < button1X+buttonSide ) {
-    measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
-    println(" X here");
-  }
-  measleY = random(backgroundY+(measleDiameter/2), backgroundY+backgroundHeight)-(measleDiameter/2);
-  while ( measleY < button1Y+buttonSide ) {
-    measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
-    println(" Y here");
-  }
-  println( "Start", measleX, measleY, measleDiameter );
-  if ( measleX <= button1X+buttonSide+(measleDiameter/2) && measleY <= button1Y+buttonSide+(measleDiameter/2)) {
-    println("\t\tXhere", measleX, button1X+buttonSide);
+   measleDiameter = random( smallerDimension*1/100, smallerDimension*1/30 );
+  measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
+  measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
+  //IF runs once, but computer can randomly choose a measlesX that is error
+  //WHILE will repeat until the randomly chosen variable fits
+  while ( measleX <= button1X+buttonSide+(measleDiameter/2) && measleY <= button1Y+buttonSide+(measleDiameter/2)) {
     measleX = random( button1X+buttonSide+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
   }
   noStroke();
+    if ( ((measleX-faceX)*(measleX-faceX))+((measleY-faceY)*(measleY-faceY)) < sq( ((faceDiameter/2)-(measleDiameter/2)) ) ); { 
   if (measlesOn==true) ellipse(measleX, measleY, measleDiameter, measleDiameter);
+  }
   stroke(1);
   fill(White);
   //

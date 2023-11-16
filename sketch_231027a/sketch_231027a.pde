@@ -50,8 +50,10 @@ void setup() {
   yRect = backgroundY*1/5;
   widthRect = backgroundWidth*1/7;
   heightRect= backgroundHeight*1/7;
-  rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
+  //
+   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   ellipse(faceX, faceY, faceDiameter, faceDiameter );
+  //
   button1X = backgroundX;
   button1Y = backgroundY;
   buttonSide = smallerDimension/2-sqrt(sq(smallerDimension/2)/2);
@@ -63,17 +65,19 @@ void setup() {
   rect( button2X, button2Y, buttonSide, buttonSide );
   rect( button3X, button3Y, buttonSide, buttonSide );  
   buttonFont = createFont("ArialMT", 55);
+  
   //
   //DIVs
 } //End setup
 //
 void draw () {
+ 
   if(splashScreen==false) background(-5);
   if (splashScreen==true) measlesProgram();
 }
 void keyPressed() {
-  if (key==' ') println("start");
-  if (key==CODED&& keyCode==BACKSPACE) println("stop");
+  if (key==' ') measlesOn=true;
+  if (key==CODED&& keyCode==SHIFT) measlesOn=false;
   if (key==CODED&& keyCode==ESC) println("quit");
 }
 //

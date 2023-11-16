@@ -30,21 +30,6 @@ void measlesProgram() {
   text( start, button1X, button1Y, buttonSide, buttonSide);
   text(stop, button2X, button2Y, buttonSide, buttonSide);
   text(quit, button3X, button3Y, buttonSide, buttonSide);
-  fill(Red);
-   measleDiameter = random( smallerDimension*1/100, smallerDimension*1/30 );
-  measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
-  measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
-  //IF runs once, but computer can randomly choose a measlesX that is error
-  //WHILE will repeat until the randomly chosen variable fits
-  while ( measleX <= button1X+buttonSide+(measleDiameter/2) && measleY <= button1Y+buttonSide+(measleDiameter/2)) {
-    measleX = random( button1X+buttonSide+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
-  }
-  noStroke();
-    if ( ((measleX-faceX)*(measleX-faceX))+((measleY-faceY)*(measleY-faceY)) < sq( ((faceDiameter/2)-(measleDiameter/2)) ) ); { 
-  if (measlesOn==true) ellipse(measleX, measleY, measleDiameter, measleDiameter);
-  }
-  stroke(1);
-  fill(White);
   //
   fill(Black);
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
@@ -55,5 +40,23 @@ void measlesProgram() {
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   strokeWeight(mouthReset);
   fill(Quit);
+  //
+  fill(Red);
+   measleDiameter = random( smallerDimension*1/100, smallerDimension*1/30 );
+  measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
+  measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
+  //IF runs once, but computer can randomly choose a measlesX that is error
+  //WHILE will repeat until the randomly chosen variable fits
+  while ( measleX <= button1X+buttonSide+(measleDiameter/2) && measleY <= button1Y+buttonSide+(measleDiameter/2)) {
+    measleX = random( button1X+buttonSide+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
+  }
+  noStroke();
+  if ( ((measleX-faceX)*(measleX-faceX))+((measleY-faceY)*(measleY-faceY)) < sq( ((faceDiameter/2)-(measleDiameter/2)) ) ) { //Measle on Circle
+    if ( measlesOn==true ) ellipse( measleX, measleY, measleDiameter, measleDiameter );
+  }
+  stroke(0);
+  noFill();
+//
+  
 } //End draw
 //

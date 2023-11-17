@@ -31,9 +31,15 @@ void measlesProgram() {
   text(stop, button2X, button2Y, buttonSide, buttonSide);
   text(quit, button3X, button3Y, buttonSide, buttonSide);
   //
-  fill(Black);
+  fill(White);
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
   ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
+  fill(Purple);
+  ellipse(leftEyeX, leftEyeY, eyeDiameter2, eyeDiameter2);
+  ellipse(rightEyeX, rightEyeY, eyeDiameter2, eyeDiameter2);
+  fill(Black);
+  ellipse(leftEyeX, leftEyeY, eyeDiameter3, eyeDiameter2);
+  ellipse(rightEyeX, rightEyeY, eyeDiameter3, eyeDiameter2);
   fill(White);
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
   strokeWeight(mouthOpen);

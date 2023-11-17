@@ -50,10 +50,6 @@ void setup() {
   yRect = backgroundY*1/5;
   widthRect = backgroundWidth*1/7;
   heightRect= backgroundHeight*1/7;
-  //
-   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-  ellipse(faceX, faceY, faceDiameter, faceDiameter );
-  //
   button1X = backgroundX;
   button1Y = backgroundY;
   buttonSide = smallerDimension/2-sqrt(sq(smallerDimension/2)/2);
@@ -74,6 +70,8 @@ void draw () {
  
   if(splashScreen==false) background(-5);
   if (splashScreen==true) measlesProgram();
+  rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
+  ellipse(faceX, faceY, faceDiameter, faceDiameter );
 }
 void keyPressed() {
   if (key==' ') measlesOn=true;

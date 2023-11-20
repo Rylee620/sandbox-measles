@@ -34,21 +34,24 @@ void measlesProgram() {
   fill(White);
   ellipse(leftEyeX, leftEyeY, eyeDiameter, eyeDiameter);
   ellipse(rightEyeX, rightEyeY, eyeDiameter, eyeDiameter);
-  fill(Purple);
+  fill(Red2);
   ellipse(leftEyeX, leftEyeY, eyeDiameter2, eyeDiameter2);
   ellipse(rightEyeX, rightEyeY, eyeDiameter2, eyeDiameter2);
   fill(Black);
   ellipse(leftEyeX, leftEyeY, eyeDiameter3, eyeDiameter2);
   ellipse(rightEyeX, rightEyeY, eyeDiameter3, eyeDiameter2);
   fill(White);
+  ellipse(leftEyeShineX, leftEyeShineY, eyeDiameter4, eyeDiameter4);
+  ellipse(rightEyeShineX, rightEyeShineY, eyeDiameter4, eyeDiameter4);
   triangle(noseX1, noseY1, noseX2, noseY2, noseX3, noseY3);
   strokeWeight(mouthOpen);
   line(mouthX1, mouthY1, mouthX2, mouthY2);
   strokeWeight(mouthReset);
   fill(Quit);
   //
-  fill(Red);
-   measleDiameter = random( smallerDimension*1/100, smallerDimension*1/30 );
+  color measleColour = color( random(195, 255), random(0, 58), random(0, 76) );
+  fill(measleColour);
+   measleDiameter = random( smallerDimension*1/100, smallerDimension*1/25 );
   measleX = random( backgroundX+(measleDiameter/2), (backgroundX+backgroundWidth)-(measleDiameter/2) );
   measleY = random( backgroundY+(measleDiameter/2), (backgroundY+backgroundHeight)-(measleDiameter/2) );
   //IF runs once, but computer can randomly choose a measlesX that is error

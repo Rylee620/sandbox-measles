@@ -4,12 +4,13 @@ float faceX, faceY, faceDiameter;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float xRect, yRect, widthRect, heightRect;
 float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
-float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter, eyeDiameter2, eyeDiameter3;
+float leftEyeX, leftEyeY, rightEyeX, rightEyeY, eyeDiameter, eyeDiameter2, eyeDiameter3, eyeDiameter4;
+float leftEyeShineX, leftEyeShineY, rightEyeShineX, rightEyeShineY;
 float noseX1, noseY1, noseX2, noseY2, noseX3, noseY3;
 float mouthX1, mouthY1, mouthX2, mouthY2, mouthOpen, mouthReset;
 float measleX, measleY, measleDiameter;
 float button1X, button1Y, button2X, button2Y, button3X, button3Y, buttonSide;
-color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000), Quit =(#FF4400), Red2=(#A70202), Blue=(#0224A7), hoverOverColour=White, Purple=(#7D148B);
+color Red =(#AD1A1A), White =(#FFFFFF), Black =(#000000), Quit =(#FF4400), Red2=(#A70202), Blue=(#0224A7), hoverOverColour=White;
 String start="Start", stop="STOP", quit="X";
 PFont buttonFont;
 Boolean measlesOn=false, splashScreen=false;
@@ -34,8 +35,13 @@ void setup() {
   eyeDiameter = smallerDimension*1/7;
   rightEyeX = backgroundX + (smallerDimension*2/3);
   rightEyeY = backgroundY + (smallerDimension*1/3);
+  leftEyeShineX = leftEyeX - (smallerDimension*1/35);
+  leftEyeShineY = leftEyeY - (smallerDimension*1/35);
+  rightEyeShineX = rightEyeX - (smallerDimension*1/35);
+  rightEyeShineY = rightEyeY - (smallerDimension*1/35);
   eyeDiameter2 =smallerDimension*1/10;
   eyeDiameter3 =smallerDimension*1/19;
+  eyeDiameter4 =smallerDimension*1/50;
   noseX1 = faceX ;
   noseY1 = leftEyeY;
   noseX2 = leftEyeX;
@@ -62,8 +68,7 @@ void setup() {
   rect( button1X, button1Y, buttonSide, buttonSide );
   rect( button2X, button2Y, buttonSide, buttonSide );
   rect( button3X, button3Y, buttonSide, buttonSide );  
-  buttonFont = createFont("ArialMT", 55);
-  
+  buttonFont = createFont("ArialMT", 55);  
   //
   //DIVs
 } //End setup
